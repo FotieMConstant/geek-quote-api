@@ -213,6 +213,11 @@ app.all("*", (req, res, next) => {
 
 // the various endpoints
 // get all quotes
+app.get("/", (req, res) => {
+  res.send("geek-quote-api.");
+});
+
+// get all quotes
 app.get("/v1/quotes", (req, res) => {
   res.send(quotes);
 });
@@ -222,6 +227,7 @@ app.get("/v1/quote", (req, res) => {
   res.send(getRandomQuotes());
 });
 
+// setting the port of the process or a default port 
 app.listen(process.env.PORT || 3000, function(){
     console.log('listening on port: 3000');
 });
