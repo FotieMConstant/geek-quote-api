@@ -194,11 +194,23 @@ const quotes =
   // }, 
 ];
 
+
+
 // function to get random quote
 function getRandomQuotes(){
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   return quote;
 }
+function genNumberOfQuotes(genNumber){
+  // Array to store the randomly generated quotes
+  let quotesNumberGen = [];
+  // Loop to get all the number of quotes specified by user in his request
+  for(let i=0; i < genNumber; i++) {
+    quotesNumberGen.push(getRandomQuotes());
+  }
+  return quotesNumberGen;
+}
+
 
 // Importing express
 const express = require('express');
@@ -225,6 +237,13 @@ app.get("/v1/quotes", (req, res) => {
 // get one random quote each time they hit the endpoint
 app.get("/v1/quote", (req, res) => {
   res.send(getRandomQuotes());
+});
+
+// get a certain number of quotes each time they hit the endpoint
+app.get("/v1/quote/:count", (req, res) => {
+  console.log("User requested for "+req.params.count+" number of quote(s)");
+  let quotes = genNumberOfQuotes(req.params.count)
+  res.send(quotes);
 });
 
 // setting the port of the process or a default port 
