@@ -26,14 +26,14 @@ Returns an array of all quotes
 
 ```json
 [
-  {
-    quote:"There is no place like 127.0.0.1",
-    author: "Unknown Author",
-  },
-  {
-    quote:"Girls are like Internet Domain names; the ones I like are already taken.",
-    author: "Unknown Author",
-  },
+ {
+   quote:"There is no place like 127.0.0.1",
+   author: "Unknown Author",
+ },
+ {
+  quote:"Girls are like Internet Domain names; the ones I like are already taken.",
+  author: "Unknown Author",
+ },
 ]
 ```
 
