@@ -27,13 +27,36 @@ Returns an array of all quotes
 ```json
 [
  {
-   quote:"There is no place like 127.0.0.1",
-   author: "Unknown Author",
+  "quote":"There is no place like 127.0.0.1",
+  "author": "Unknown Author",
  },
  {
-  quote:"Girls are like Internet Domain names; the ones I like are already taken.",
-  author: "Unknown Author",
+  "quote":"Girls are like Internet Domain names; the ones I like are already taken.",
+  "author": "Unknown Author",
  },
+]
+```
+
+### `GET /v1/quote/<count>` e.g `GET /v1/quote/4`
+
+Returns an array of the number of quotes specified
+
+```json
+[
+ {
+  "quote":"Girls are like Internet Domain names; the ones I like are already taken.",
+  "author": "Unknown Author",
+ },
+ {"quote":"Never argue with the data.",
+ "author":"Unknown Author"
+ },
+ {
+ "quote":"Passwords are like underwear. You shouldn’t leave them out where people can see them. You should change them regularly. And you shouldn’t loan them out to strangers.","author":"Unknown Author"
+ },
+ {
+ "quote":"JUST SHUT UP AND REBOOT!!",
+ "author":"Unknown Author"
+ }
 ]
 ```
 
