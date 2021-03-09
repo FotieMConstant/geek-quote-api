@@ -1,0 +1,29 @@
+{
+  "name": "geek-quote-api",
+  "version": "0.1.0",
+  "description": "An API for retrieving random geeky quotes",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FotieMConstant"
+  },
+  "scripts": {
+    "serve": "node index.js"
+  },
+  "keywords": [
+    "geek-quote",
+    "fotiecodes",
+    "quotes",
+    "geeky-quotes",
+    "geek"
+  ],
+  "author": "Fotie M. Constant",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/FotieMConstant"
+  },
+  "homepage": "https://github.com/FotieMConstant",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
