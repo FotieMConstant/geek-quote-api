@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "description": "An API for retrieving random geeky quotes",
   "private": false,
+  "main": "sever.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/FotieMConstant"
   },
   "scripts": {
-    "serve": "node index.js"
+    "start": "node sever.js"
   },
   "keywords": [
     "geek-quote",
@@ -21,6 +22,9 @@
   "license": "",
   "bugs": {
     "url": "https://github.com/FotieMConstant"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "homepage": "https://github.com/FotieMConstant",
   "dependencies": {
