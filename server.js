@@ -188,10 +188,54 @@ const quotes =
     quote: "The most damaging phrase in the language is.. it's always been done this way",
     author: "Grace Hopper",
   }, 
+  {
+    quote: "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "Chuck Norris can delete the Recycling Bin.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "Two CSS properties walk into a bar. A barstool in a completely different bar falls over.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "If you get tired, be like an AJAX request and REST.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "💕 I'm the CSS to your HTML.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "If a groundhog inspects their Web Component, do they see their Shadow DOM?",
+    author: "Unknown Author",
+  },
+  {
+    quote: "A Pen is worth a thousand docs.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "Keep the <main> thing the <main> thing.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "What did the colon say to the semicolon? Stop winking at me.",
+    author: "Unknown Author",
+  },
+  {
+    quote: "Learning 3D transforms in CSS requires a little perspective",
+    author: "Unknown Author",
+  },
+  {
+    quote: "If you want to flex your skills and go off the grid, try coding a layout with float",
+    author: "Unknown Author",
+  }, 
   // {
   //   quote: "",
   //   author: "",
-  // }, 
+  // },
 ];
 
 
