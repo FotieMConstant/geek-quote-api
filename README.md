@@ -1,3 +1,5 @@
+
+![geek-quote-api logo](https://github.com/FotieMConstant/geek-quote-api/blob/main/logo.png)
 # geek-quote-api
 An API for retrieving random geeky quotes
 
