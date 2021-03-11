@@ -255,6 +255,8 @@ function genNumberOfQuotes(genNumber){
   return quotesNumberGen;
 }
 
+// importing path
+const path = require('path')
 
 // Importing express
 const express = require('express');
@@ -289,6 +291,11 @@ app.get("/v1/quote/:count", (req, res) => {
   let quotes = genNumberOfQuotes(req.params.count)
   res.send(quotes);
 });
+
+// added a 404 page
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, 'views', '404.html'))
+})
 
 // setting the port of the process or a default port 
 app.listen(process.env.PORT || 3000, function(){
