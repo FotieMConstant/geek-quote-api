@@ -1,6 +1,15 @@
 "use strict";
 
+// importing path
+const path = require('path')
+
+// Importing express
+const express = require('express');
+const app = express();
+
 const quotes = require('./quotes')
+
+const log = console.log
 
 // function to get random quote
 function getRandomQuotes(){
@@ -17,12 +26,29 @@ function genNumberOfQuotes(genNumber){
   return quotesNumberGen;
 }
 
-// importing path
-const path = require('path')
+const findWordMatch = (keyword) => {
+  var mQuote
+  var mAuthor
+  var query
+  quotes.forEach((value) => {
+    if(value['quote'].includes(keyword) == true) {
+      // log(value['quote'])
+      mQuote = value['quote']
+      mAuthor = value['author']
 
-// Importing express
-const express = require('express');
-const app = express();
+      let getQuery = {
+        "quote" : mQuote,
+        "author" : mAuthor
+      }
+
+      query = getQuery
+    } else {
+      return
+    }
+  })
+
+  return query
+}
 
 // enabling CORS to accept from all origins
 app.all("*", (req, res, next) => {
@@ -52,6 +78,12 @@ app.get("/v1/quote/:count", (req, res) => {
   console.log("User requested for "+req.params.count+" number of quote(s)");
   let quotes = genNumberOfQuotes(req.params.count)
   res.send(quotes);
+});
+
+app.get("/v1/quote/filter/:keyword", (req, res) => {
+  console.log(`User searched for ${req.params.keyword}`);
+  let mQuote = findWordMatch(req.params.keyword)
+  res.send(mQuote);
 });
 
 // added a 404 page

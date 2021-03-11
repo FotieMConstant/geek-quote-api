@@ -62,6 +62,17 @@ Returns an array of the number of quotes specified
 ]
 ```
 
+### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/programming`
+
+Returns an object with one quote with the searched keyword:
+
+```json
+{
+  "quote": "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
+  "author": "Unknown Author"
+}
+```
+
 ## Local development
 
 Once you've cloned this repo, run `npm install` to install the dependencies.
