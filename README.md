@@ -62,7 +62,7 @@ Returns an array of the number of quotes specified
 ]
 ```
 
-### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/programming`
+### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/code`
 
 Returns an object with one quote with the searched keyword:
 
