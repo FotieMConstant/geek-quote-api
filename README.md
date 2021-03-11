@@ -80,3 +80,6 @@ Once you've cloned this repo, run `npm install` to install the dependencies.
 Then you can run:
 
 * `npm start`: runs the compiled server
+
+### Context
+https://www.youtube.com/watch?v=zEsAf88zpg4
