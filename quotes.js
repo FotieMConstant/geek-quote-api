@@ -258,6 +258,44 @@ module.exports = [
       "If you want to flex your skills and go off the grid, try coding a layout with float",
     author: "Unknown Author",
   },
+  {
+    quote: "Try not. Do, or do not. There is no try.",
+    author: "Yoda, The Empire Strikes Back",
+  },
+
+  {
+    quote: "Goonies never say die.",
+    author: "Mike, The Goonies",
+  },
+  {
+    quote: "Don't call me a mindless philosopher, you overweight blob of grease!",
+    author: "C3PO, Star Wars",
+  },
+  {
+    quote: "Shall we play a game?",
+    author: "Joshua, WarGames",
+  },
+  {
+    quote: "I'm not your F1 button!",
+    author: "Unknown Author",
+  },
+  {
+    quote: "Talk is cheap. Show me the code.",
+    author: "Linus Torwards",
+  },
+  {
+    quote: "I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.",
+    author: "Bill Gates",
+  },
+  {
+    quote: "Programming is like any other sport. You might know the rules but you have to play to learn.",
+    author: "Zuckerbeg",
+  },
+  {
+    quote: "The most damaging phrase in the language is -It's always been done this way-",
+    author: "Grace Hopper",
+  },  
+
   // {
   //   quote: "",
   //   author: "",
