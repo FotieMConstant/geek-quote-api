@@ -87,8 +87,9 @@ app.get("/v1/quote/:count", (req, res) => {
 
 app.get("/v1/quote/filter/:keyword", (req, res) => {
   console.log(`User searched for ${req.params.keyword}`);
-  let mQuote = findWordMatch(req.params.keyword)
-  res.send(mQuote);
+  let mQuote = findWordMatch(req.params.keyword);
+  let emptyQuote = {"quote": "", "author":""};
+  res.send(mQuote? mQuote : emptyQuote);
 });
 
 // added a 404 page
@@ -100,3 +101,5 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || 3000, function(){
     console.log('listening on port: 3000');
 });
+
+module.exports = app
