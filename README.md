@@ -3,6 +3,10 @@
 # geek-quote-api
 An API for retrieving random geeky quotes
 
+## Apps built on geek-quote-api
+
+- <a href="https://mrtimeey.github.io/geek-quotes-app/">geek-quotes-app</a> by <a href="https://github.com/MrTimeey/">MrTimeey</a> 
+
 ## Production host
 
 [https://geek-quote-api.herokuapp.com/v1/quote](https://geek-quote-api.herokuapp.com/v1/quote)
