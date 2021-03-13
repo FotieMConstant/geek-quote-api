@@ -36,7 +36,7 @@ const findWordMatch = (keyword) => {
   var mAuthor
   var query
   quotes.forEach((value) => {
-    if(value['quote'].includes(keyword) == true) {
+    if(value['quote'].includes(keyword) === true) {
       // log(value['quote'])
       mQuote = value['quote']
       mAuthor = value['author']
@@ -81,8 +81,8 @@ app.get("/v1/quote", (req, res) => {
 // get a certain number of quotes each time they hit the endpoint
 app.get("/v1/quote/:count", (req, res) => {
   console.log("User requested for "+req.params.count+" number of quote(s)");
-  let quotes = genNumberOfQuotes(req.params.count)
-  res.send(quotes);
+  let quotesList = genNumberOfQuotes(req.params.count)
+  res.send(quotesList);
 });
 
 app.get("/v1/quote/filter/:keyword", (req, res) => {
