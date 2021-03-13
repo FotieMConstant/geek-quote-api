@@ -5,7 +5,12 @@ const path = require('path')
 
 // Importing express
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const quotes = require('./quotes')
 
@@ -31,7 +36,7 @@ const findWordMatch = (keyword) => {
   var mAuthor
   var query
   quotes.forEach((value) => {
-    if(value['quote'].includes(keyword) == true) {
+    if(value['quote'].includes(keyword) === true) {
       // log(value['quote'])
       mQuote = value['quote']
       mAuthor = value['author']
@@ -76,14 +81,15 @@ app.get("/v1/quote", (req, res) => {
 // get a certain number of quotes each time they hit the endpoint
 app.get("/v1/quote/:count", (req, res) => {
   console.log("User requested for "+req.params.count+" number of quote(s)");
-  let quotes = genNumberOfQuotes(req.params.count)
-  res.send(quotes);
+  let quotesList = genNumberOfQuotes(req.params.count)
+  res.send(quotesList);
 });
 
 app.get("/v1/quote/filter/:keyword", (req, res) => {
   console.log(`User searched for ${req.params.keyword}`);
-  let mQuote = findWordMatch(req.params.keyword)
-  res.send(mQuote);
+  let mQuote = findWordMatch(req.params.keyword);
+  let emptyQuote = {"quote": "", "author":""};
+  res.send(mQuote? mQuote : emptyQuote);
 });
 
 // added a 404 page
@@ -95,3 +101,5 @@ app.use((req, res, next) => {
 app.listen(process.env.PORT || 3000, function(){
     console.log('listening on port: 3000');
 });
+
+module.exports = app
