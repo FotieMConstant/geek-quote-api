@@ -12,7 +12,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const quotes = require('./quotes')
+const quotes = require('./quotes');
+const {findAllMatches, findFirstMatch} = require('./quotes/QuotesUtils')
 
 const log = console.log
 
@@ -29,30 +30,6 @@ function genNumberOfQuotes(genNumber){
     quotesNumberGen.push(getRandomQuotes());
   }
   return quotesNumberGen;
-}
-
-const findWordMatch = (keyword) => {
-  var mQuote
-  var mAuthor
-  var query
-  quotes.forEach((value) => {
-    if(value['quote'].includes(keyword) === true) {
-      // log(value['quote'])
-      mQuote = value['quote']
-      mAuthor = value['author']
-
-      let getQuery = {
-        "quote" : mQuote,
-        "author" : mAuthor
-      }
-
-      query = getQuery
-    } else {
-      return
-    }
-  })
-
-  return query
 }
 
 // enabling CORS to accept from all origins
@@ -86,10 +63,16 @@ app.get("/v1/quote/:count", (req, res) => {
 });
 
 app.get("/v1/quote/filter/:keyword", (req, res) => {
-  console.log(`User searched for ${req.params.keyword}`);
-  let mQuote = findWordMatch(req.params.keyword);
+  console.log(`User searched for first match of ${req.params.keyword}`);
+  let mQuote = findFirstMatch(req.params.keyword);
   let emptyQuote = {"quote": "", "author":""};
   res.send(mQuote? mQuote : emptyQuote);
+});
+
+app.get("/v1/quotes/filter/:keyword", (req, res) => {
+  console.log(`User searched for all matches of ${req.params.keyword}`);
+  let quotesList = findAllMatches(req.params.keyword);
+  res.send(quotesList? quotesList : []);
 });
 
 // added a 404 page

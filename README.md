@@ -68,13 +68,30 @@ Returns an array of the number of quotes specified
 
 ### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/code`
 
-Returns an object with one quote with the searched keyword:
+Returns an object with first quote with the searched keyword:
 
 ```json
 {
   "quote": "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
   "author": "Unknown Author"
 }
+```
+
+### `GET /v1/quotes/filter/{{keyword}}` e.g `GET /v1/quotes/filter/code`
+
+Returns an array with all quotes with the searched keyword:
+
+```json
+[
+  {
+    "quote": "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
+    "author": "Unknown Author"
+  },
+  {
+    "quote": "Talk is cheap. Show me the code.",
+    "author": "Linus Torwards"
+  }
+]
 ```
 
 ## Local development
@@ -84,6 +101,7 @@ Once you've cloned this repo, run `npm install` to install the dependencies.
 Then you can run:
 
 * `npm start`: runs the compiled server
+* `npm run serve`: runs the server with hot code replacement
 
 ### Context
 https://www.youtube.com/watch?v=zEsAf88zpg4
