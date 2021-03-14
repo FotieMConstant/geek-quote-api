@@ -59,10 +59,10 @@ describe('Geek-Api', () => {
                 });
         });
     });
-    describe('/GET /v1/quotes/filter/try', () => {
+    describe('/GET /v1/quote/filter/all/try', () => {
         it('it should match four quotes', (done) => {
             chai.request(server)
-                .get('/v1/quotes/filter/try')
+                .get('/v1/quote/filter/all/try')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
@@ -84,10 +84,10 @@ describe('Geek-Api', () => {
                 });
         });
     });
-    describe('/GET /v1/quotes/filter/notMatchingKeyword', () => {
+    describe('/GET /v1/quote/filter/all/notMatchingKeyword', () => {
         it('it should match zero quotes', (done) => {
             chai.request(server)
-                .get('/v1/quotes/filter/notMatchingKeyword')
+                .get('/v1/quote/filter/all/notMatchingKeyword')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');

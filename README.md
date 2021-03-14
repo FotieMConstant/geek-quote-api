@@ -77,7 +77,7 @@ Returns an object with first quote with the searched keyword:
 }
 ```
 
-### `GET /v1/quotes/filter/{{keyword}}` e.g `GET /v1/quotes/filter/code`
+### `GET /v1/quote/filter/all/{{keyword}}` e.g `GET /v1/quote/filter/all/code`
 
 Returns an array with all quotes with the searched keyword:
 

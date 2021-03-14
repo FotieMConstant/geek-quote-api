@@ -69,7 +69,7 @@ app.get("/v1/quote/filter/:keyword", (req, res) => {
   res.send(mQuote? mQuote : emptyQuote);
 });
 
-app.get("/v1/quotes/filter/:keyword", (req, res) => {
+app.get("/v1/quote/filter/all/:keyword", (req, res) => {
   console.log(`User searched for all matches of ${req.params.keyword}`);
   let quotesList = findAllMatches(req.params.keyword);
   res.send(quotesList? quotesList : []);
