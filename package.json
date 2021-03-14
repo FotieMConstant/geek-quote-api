@@ -9,6 +9,7 @@
     "url": "https://github.com/FotieMConstant"
   },
   "scripts": {
+    "serve": "node_modules/.bin/nodemon mock-service/index.js --exec",
     "start": "node server.js",
     "test": "mocha"
   },
@@ -35,6 +36,7 @@
     "body-parser": "^1.19.0",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
-    "mocha": "^8.3.2"
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7"
   }
 }

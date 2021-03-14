@@ -46,15 +46,27 @@ describe('Geek-Api', () => {
                 });
         });
     });
-    describe('/GET /v1/quote/filter/try', () => {
+    describe('/GET /v1/quote/filter/yoda', () => {
         it('it should match one quote', (done) => {
             chai.request(server)
-                .get('/v1/quote/filter/try')
+                .get('/v1/quote/filter/yoda')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.should.have.property('quote').be.eql('Try not. Do, or do not. There is no try.');
                     res.body.should.have.property('author').be.eql('Yoda, The Empire Strikes Back');
+                    done();
+                });
+        });
+    });
+    describe('/GET /v1/quote/filter/all/try', () => {
+        it('it should match four quotes', (done) => {
+            chai.request(server)
+                .get('/v1/quote/filter/all/try')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.length.should.be.eql(4);
                     done();
                 });
         });
@@ -68,6 +80,18 @@ describe('Geek-Api', () => {
                     res.body.should.be.a('object');
                     res.body.should.have.property('quote').be.empty;
                     res.body.should.have.property('author').be.empty;
+                    done();
+                });
+        });
+    });
+    describe('/GET /v1/quote/filter/all/notMatchingKeyword', () => {
+        it('it should match zero quotes', (done) => {
+            chai.request(server)
+                .get('/v1/quote/filter/all/notMatchingKeyword')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    res.body.length.should.be.eql(0);
                     done();
                 });
         });
