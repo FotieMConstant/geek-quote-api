@@ -1,54 +1,17 @@
 "use strict";
 
-// importing path
-const path = require('path')
-
 // Importing express
 const express = require('express');
+
 const app = express();
 
-const quotes = require('./quotes')
+//body-parser already added to express
+app.use(express.urlencoded({ extended: false })); // this is for body parsing
+app.use(express.json());
 
-const log = console.log
+const errorController = require('./controllers/error_controller')
 
-// function to get random quote
-function getRandomQuotes(){
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  return quote;
-}
-function genNumberOfQuotes(genNumber){
-  // Array to store the randomly generated quotes
-  let quotesNumberGen = [];
-  // Loop to get all the number of quotes specified by user in his request
-  for(let i=0; i < genNumber; i++) {
-    quotesNumberGen.push(getRandomQuotes());
-  }
-  return quotesNumberGen;
-}
-
-const findWordMatch = (keyword) => {
-  var mQuote
-  var mAuthor
-  var query
-  quotes.forEach((value) => {
-    if(value['quote'].includes(keyword) == true) {
-      // log(value['quote'])
-      mQuote = value['quote']
-      mAuthor = value['author']
-
-      let getQuery = {
-        "quote" : mQuote,
-        "author" : mAuthor
-      }
-
-      query = getQuery
-    } else {
-      return
-    }
-  })
-
-  return query
-}
+const quoteRoute = require('./routes/quote_route')
 
 // enabling CORS to accept from all origins
 app.all("*", (req, res, next) => {
@@ -63,35 +26,15 @@ app.get("/", (req, res) => {
   res.send("geek-quote-api.");
 });
 
-// get all quotes
-app.get("/v1/quotes", (req, res) => {
-  res.send(quotes);
-});
-
-// get one random quote each time they hit the endpoint
-app.get("/v1/quote", (req, res) => {
-  res.send(getRandomQuotes());
-});
-
-// get a certain number of quotes each time they hit the endpoint
-app.get("/v1/quote/:count", (req, res) => {
-  console.log("User requested for "+req.params.count+" number of quote(s)");
-  let quotes = genNumberOfQuotes(req.params.count)
-  res.send(quotes);
-});
-
-app.get("/v1/quote/filter/:keyword", (req, res) => {
-  console.log(`User searched for ${req.params.keyword}`);
-  let mQuote = findWordMatch(req.params.keyword)
-  res.send(mQuote);
-});
+// get all quotes api request
+app.use(quoteRoute);
 
 // added a 404 page
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, 'views', '404.html'))
-})
+app.use(errorController.pageNotFound)
 
 // setting the port of the process or a default port 
 app.listen(process.env.PORT || 3000, function(){
     console.log('listening on port: 3000');
 });
+
+module.exports = app
