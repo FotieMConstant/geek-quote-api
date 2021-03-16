@@ -295,6 +295,10 @@ module.exports = [
     quote: "The most damaging phrase in the language is -It's always been done this way-",
     author: "Grace Hopper",
   },  
+  {
+    quote: "The best thing about a boolean is even if you are wrong, you are only off by a bit.",
+    author: "Unknown Author",
+  }
 
   // {
   //   quote: "",
