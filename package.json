@@ -1,42 +1,42 @@
 {
-  "name": "geek-quote-api",
-  "version": "0.1.0",
-  "description": "An API for retrieving random geeky quotes",
-  "private": false,
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FotieMConstant"
-  },
-  "scripts": {
-    "serve": "node_modules/.bin/nodemon mock-service/index.js --exec",
-    "start": "node server.js",
-    "test": "mocha"
-  },
-  "keywords": [
-    "geek-quote",
-    "fotiecodes",
-    "quotes",
-    "geeky-quotes",
-    "geek"
-  ],
-  "author": "Fotie M. Constant",
-  "license": "",
-  "bugs": {
-    "url": "https://github.com/FotieMConstant"
-  },
-  "engines": {
-    "node": "14.x"
-  },
-  "homepage": "https://github.com/FotieMConstant",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "body-parser": "^1.19.0",
-    "chai": "^4.3.4",
-    "chai-http": "^4.3.0",
-    "mocha": "^8.3.2",
-    "nodemon": "^2.0.7"
-  }
+    "name": "geek-quote-api",
+    "version": "0.1.0",
+    "description": "An API for retrieving random geeky quotes",
+    "private": false,
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/FotieMConstant"
+    },
+    "scripts": {
+        "serve": "node_modules/.bin/nodemon mock-service/index.js --exec",
+        "start": "node server.js",
+        "test": "mocha"
+    },
+    "keywords": [
+        "geek-quote",
+        "fotiecodes",
+        "quotes",
+        "geeky-quotes",
+        "geek"
+    ],
+    "author": "Fotie M. Constant",
+    "license": "",
+    "bugs": {
+        "url": "https://github.com/FotieMConstant"
+    },
+    "engines": {
+        "node": "14.x"
+    },
+    "homepage": "https://github.com/FotieMConstant",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "body-parser": "^1.19.0",
+        "chai": "^4.3.4",
+        "chai-http": "^4.3.0",
+        "mocha": "^8.3.2",
+        "nodemon": "^2.0.7"
+    }
 }
