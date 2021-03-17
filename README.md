@@ -66,6 +66,29 @@ Returns an array of the number of quotes specified
 ]
 ```
 
+### `GET /v1/quote/filter/known`
+
+Returns an object with known ramdom quote:
+
+```json
+{
+  "quote": "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
+  "author": "Some Author"
+}
+```
+
+
+### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/known/1`
+
+Returns an array of number of quotes of known author:
+
+```json
+{
+  "quote": "Every SQL statement that Chuck Norris codes has an implicit 'COMMIT' in its end.",
+  "author": "Some Author"
+}
+```
+
 ### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/code`
 
 Returns an object with first quote with the searched keyword:

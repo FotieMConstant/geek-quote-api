@@ -4,9 +4,27 @@ const quotes = require("../quotes");
 function getRandomQuotes() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   return quote;
+} 
+
+function getKnownRamdonQuote(){ // Single Ramdom Known Author
+  const mquotes=quotes.filter(q=>q.author!=="Unknown Author");
+  
+  const mKnownRandom=mquotes[Math.floor(Math.random() * mquotes.length)]
+  
+  return mKnownRandom;
 }
 
-function genNumberOfQuotes(genNumber) {
+function getKnownRamdonQuotes(nubmer){ // Multiple Ramdom Known Author
+
+  let quotesNumberGen = [];
+
+  for (let i = 0; i < nubmer; i++) {
+    quotesNumberGen.push(getKnownRamdonQuote());
+  }
+  return quotesNumberGen;
+}
+
+function genNumberOfQuotes(genNumber) {  
   // Array to store the randomly generated quotes
   let quotesNumberGen = [];
   // Loop to get all the number of quotes specified by user in his request
@@ -32,6 +50,15 @@ exports.getNumberOfQuotes = (req, res) => {
   let quotesList = genNumberOfQuotes(req.params.count);
   res.send(quotesList);
 };
+
+exports.getSingleKnownAuthor =(req, res) =>{
+  let ranQuote=getKnownRamdonQuote();
+  res.send(ranQuote);
+}
+
+exports.getMultipleKnownAuthor=(req,res)=>{
+  res.send( getKnownRamdonQuotes(req.params.count));
+}
 
 exports.getSingleMatch = (req, res) => {
   console.log(`User searched for first match of ${req.params.keyword}`);
