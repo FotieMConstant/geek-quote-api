@@ -10,6 +10,10 @@ router.get("/v1/quote", quoteController.getSingleQuote)
 
 router.get("/v1/quote/:count", quoteController.getNumberOfQuotes)
 
+router.get("/v1/quote/filter/known",quoteController.getSingleKnownAuthor)
+
+router.get("/v1/quote/filter/known/:count",quoteController.getMultipleKnownAuthor)
+
 router.get("/v1/quote/filter/:keyword", quoteController.getSingleMatch)
 
 router.get("/v1/quote/filter/all/:keyword", quoteController.getAllMatch)
