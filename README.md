@@ -68,7 +68,7 @@ Returns an array of the number of quotes specified
 
 ### `GET /v1/quote/filter/known`
 
-Returns an object with known ramdom quote:
+Returns a ramdom object with quote of known author:
 
 ```json
 {
@@ -78,7 +78,7 @@ Returns an object with known ramdom quote:
 ```
 
 
-### `GET /v1/quote/filter/{{keyword}}` e.g `GET /v1/quote/filter/known/1`
+### `GET /v1/quote/filter/known/<count>` e.g `GET /v1/quote/filter/known/1`
 
 Returns an array of number of quotes of known author:
 
