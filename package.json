@@ -9,7 +9,7 @@
         "url": "https://github.com/FotieMConstant"
     },
     "scripts": {
-        "serve": "node_modules/.bin/nodemon mock-service/index.js --exec",
+        "serve": "node_modules/.bin/nodemon server.js --exec",
         "start": "node server.js",
         "test": "mocha"
     },
