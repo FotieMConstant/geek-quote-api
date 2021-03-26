@@ -1,6 +1,11 @@
 // The array of quotes
 module.exports = [
   {
+    id: "0",
+    quote: "Code is more than some bytes in a file",
+    author: "Unknown Author",
+  },
+  {
     id: "1",
     quote: "There is no place like 127.0.0.1",
     author: "Unknown Author",
