@@ -400,7 +400,20 @@ module.exports = [
     quote: "You can't trust code that you did not totally create yourself.",
     author: "Ken Thomas"
   
+  },
+     {
+    id:"73",
+    quote: "The best error message is the one that never shows up",
+    author: "Thomas Fuchs"
+  
+  },
+    {
+    id:"74",
+    quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand",
+    author: "Martin Fowler"
+  
   }
+  
   
   
 
