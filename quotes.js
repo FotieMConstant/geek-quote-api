@@ -370,7 +370,39 @@ module.exports = [
     id: "67",
     quote: "The best thing about a boolean is even if you are wrong, you are only off by a bit.",
     author: "Unknown Author",
+  },
+  {
+    id:"68",
+    quote: "I propose to consider the question, 'Can machines think?",
+    author: "Alan Turing"
+  
+  },
+  {
+    id:"69",
+    quote: "Science is a differential equation. Religion is a boundary condition.",
+    author: "Alan Turing"
+  
+  },
+  {
+    id:"70",
+    quote: "A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.",
+    author: "Alan Turing"
+  
+  },
+  {
+    id:"71",
+    quote: "Clearly, I reject the view that there is one way that is right for everyone and for every problem.",
+    author: "Bjarne Stroustrup"
+  
+  },
+    {
+    id:"72",
+    quote: "You can't trust code that you did not totally create yourself.",
+    author: "Ken Thomas"
+  
   }
+  
+  
 
   // {
   //   quote: "",
