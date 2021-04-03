@@ -15,7 +15,7 @@ function getKnownRandomQuote() {
   return mKnownRandom;
 }
 
-function getKnownRamdonQuotes(number) {
+function getKnownRandomQuotes(number) {
   // Multiple Random Known Author
 
   let quotesNumberGen = [];
@@ -61,12 +61,12 @@ exports.getNumberOfQuotes = (req, res) => {
 };
 
 exports.getSingleKnownAuthor = (req, res) => {
-  let ranQuote = getKnownRamdonQuote();
+  let ranQuote = getKnownRandomQuote();
   res.send(ranQuote);
 };
 
 exports.getMultipleKnownAuthor = (req, res) => {
-  res.send(getKnownRamdonQuotes(req.params.count));
+  res.send(getKnownRandomQuotes(req.params.count));
 };
 
 exports.getSingleMatch = (req, res) => {
