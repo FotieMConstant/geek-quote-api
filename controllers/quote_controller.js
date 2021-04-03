@@ -6,8 +6,8 @@ function getRandomQuotes() {
   return quote;
 }
 
-function getKnownRamdonQuote() {
-  // Single Ramdom Known Author
+function getKnownRandomQuote() {
+  // Single Random Known Author
   const mquotes = quotes.filter((q) => q.author !== "Unknown Author");
 
   const mKnownRandom = mquotes[Math.floor(Math.random() * mquotes.length)];
@@ -16,12 +16,12 @@ function getKnownRamdonQuote() {
 }
 
 function getKnownRamdonQuotes(number) {
-  // Multiple Ramdom Known Author
+  // Multiple Random Known Author
 
   let quotesNumberGen = [];
 
   for (let i = 0; i < number; i++) {
-    quotesNumberGen.push(getKnownRamdonQuote());
+    quotesNumberGen.push(getKnownRandomQuote());
   }
   return quotesNumberGen;
 }
