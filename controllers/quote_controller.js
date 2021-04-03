@@ -15,12 +15,12 @@ function getKnownRamdonQuote() {
   return mKnownRandom;
 }
 
-function getKnownRamdonQuotes(nubmer) {
+function getKnownRamdonQuotes(number) {
   // Multiple Ramdom Known Author
 
   let quotesNumberGen = [];
 
-  for (let i = 0; i < nubmer; i++) {
+  for (let i = 0; i < number; i++) {
     quotesNumberGen.push(getKnownRamdonQuote());
   }
   return quotesNumberGen;
