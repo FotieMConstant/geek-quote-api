@@ -4,27 +4,29 @@ const quotes = require("../quotes");
 function getRandomQuotes() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
   return quote;
-} 
+}
 
-function getKnownRamdonQuote(){ // Single Ramdom Known Author
-  const mquotes=quotes.filter(q=>q.author!=="Unknown Author");
-  
-  const mKnownRandom=mquotes[Math.floor(Math.random() * mquotes.length)]
-  
+function getKnownRandomQuote() {
+  // Single Random Known Author
+  const mquotes = quotes.filter((q) => q.author !== "Unknown Author");
+
+  const mKnownRandom = mquotes[Math.floor(Math.random() * mquotes.length)];
+
   return mKnownRandom;
 }
 
-function getKnownRamdonQuotes(nubmer){ // Multiple Ramdom Known Author
+function getKnownRandomQuotes(number) {
+  // Multiple Random Known Author
 
   let quotesNumberGen = [];
 
-  for (let i = 0; i < nubmer; i++) {
-    quotesNumberGen.push(getKnownRamdonQuote());
+  for (let i = 0; i < number; i++) {
+    quotesNumberGen.push(getKnownRandomQuote());
   }
   return quotesNumberGen;
 }
 
-function genNumberOfQuotes(genNumber) {  
+function genNumberOfQuotes(genNumber) {
   // Array to store the randomly generated quotes
   let quotesNumberGen = [];
   // Loop to get all the number of quotes specified by user in his request
@@ -46,19 +48,26 @@ exports.getSingleQuote = (req, res) => {
 
 // get a certain number of quotes each time they hit the endpoint
 exports.getNumberOfQuotes = (req, res) => {
+  if (isNaN(parseInt(req.params.count)))
+    res.send({
+      error: {
+        message: "Count is not a number.",
+        code: 400,
+      },
+    });
   console.log("User requested for " + req.params.count + " number of quote(s)");
   let quotesList = genNumberOfQuotes(req.params.count);
   res.send(quotesList);
 };
 
-exports.getSingleKnownAuthor =(req, res) =>{
-  let ranQuote=getKnownRamdonQuote();
+exports.getSingleKnownAuthor = (req, res) => {
+  let ranQuote = getKnownRandomQuote();
   res.send(ranQuote);
-}
+};
 
-exports.getMultipleKnownAuthor=(req,res)=>{
-  res.send( getKnownRamdonQuotes(req.params.count));
-}
+exports.getMultipleKnownAuthor = (req, res) => {
+  res.send(getKnownRandomQuotes(req.params.count));
+};
 
 exports.getSingleMatch = (req, res) => {
   console.log(`User searched for first match of ${req.params.keyword}`);
