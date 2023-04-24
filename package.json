@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "An API for retrieving random geeky quotes",
     "private": false,
-    "main": "server.js",
+    "main": "index.js",
     "engines": {
         "node": "14.x"
     },
@@ -12,8 +12,8 @@
         "url": "https://github.com/FotieMConstant"
     },
     "scripts": {
-        "serve": "node_modules/.bin/nodemon server.js --exec",
-        "start": "node server.js",
+        "serve": "node_modules/.bin/nodemon index.js --exec",
+        "start": "node index.js",
         "test": "mocha"
     },
     "keywords": [
