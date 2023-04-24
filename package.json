@@ -28,9 +28,6 @@
     "bugs": {
         "url": "https://github.com/FotieMConstant"
     },
-    "engines": {
-        "node": "14.x"
-    },
     "homepage": "https://github.com/FotieMConstant",
     "dependencies": {
         "express": "^4.17.1"
