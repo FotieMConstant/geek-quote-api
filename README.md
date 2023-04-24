@@ -8,8 +8,11 @@ An API for retrieving random geeky quotes
 - <a href="https://mrtimeey.github.io/geek-quotes-app/">geek-quotes-app</a> by <a href="https://github.com/MrTimeey/">MrTimeey</a> 
 
 ## Production host
+### 🚨 Update 2023!
+The production host which was initially hosted on heroku was moved to vercel due to the fact that heroku no longer supports free tier.
 
-[https://geek-quote-api.herokuapp.com/v1/quote](https://geek-quote-api.herokuapp.com/v1/quote)
+- Old domain: [https://geek-quote-api.herokuapp.com/v1/quote](https://geek-quote-api.herokuapp.com/v1/quote)(offline)
+- New domain: [https://geek-quote-api.vercel.app/v1/quote](https://geek-quote-api.vercel.app//v1/quote)(online)
 
 The `Access-Control-Allow-Origin` header is set to `*` so that you can make requests from any domain.
 
