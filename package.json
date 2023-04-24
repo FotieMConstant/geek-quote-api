@@ -4,6 +4,9 @@
     "description": "An API for retrieving random geeky quotes",
     "private": false,
     "main": "server.js",
+    "engines": {
+        "node": "14.x"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/FotieMConstant"
