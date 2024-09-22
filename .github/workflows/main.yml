@@ -36,8 +36,8 @@ jobs:
           npm install -g lanadoc-cli
           echo $LANA_OPENAI_API_KEY
           echo $LANA_MODEL
-          lanadoc config --set LANA_OPENAI_API_KEY=$LANA_OPENAI_API_KEY
-          lanadoc config --set LANA_MODEL=$LANA_MODEL
+          lanadoc config --set LANA_OPENAI_API_KEY=LANA_OPENAI_API_KEY
+          lanadoc config --set LANA_MODEL=LANA_MODEL
           lanadoc generate
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
 
