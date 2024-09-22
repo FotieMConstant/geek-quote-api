@@ -26,6 +26,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Generate documentation
+        env:
+            OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+            MODEL: ${{ secrets.LANA_MODEL }}
         run: |
           cd docs-beta
           npm install -g yargs
@@ -36,9 +39,6 @@ jobs:
           lanadoc config --set LANA_MODEL=$MODEL
           lanadoc generate
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
-        env:
-          OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
-          MODEL: ${{ secrets.LANA_MODEL }}
 
       - name: Validate openapi specification
         run: echo "lanadoc validate"
