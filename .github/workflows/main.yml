@@ -25,27 +25,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: |
+          cd docs-beta
+          npm install
+
       - name: Generate documentation
         env:
-            OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
-            MODEL: ${{ secrets.LANA_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+          MODEL: ${{ secrets.LANA_MODEL }}
         run: |
           cd docs-beta
           npm install -g yargs
           npm install -g lanadoc-cli
-          echo $LANA_OPENAI_API_KEY
-          echo $LANA_MODEL
           lanadoc config --set LANA_OPENAI_API_KEY=$OPENAI_API_KEY
           lanadoc config --set LANA_MODEL=$MODEL
           lanadoc generate
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
 
-      - name: Validate openapi specification
-        run: echo "lanadoc validate"
+      - name: Build Vue.js application
+        run: |
+          cd docs-beta
+          npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/output
-          publish_branch: gh-pages
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-username: ${{ secrets.VERCEL_USERNAME }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: docs-beta
+          production: true
