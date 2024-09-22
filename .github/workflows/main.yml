@@ -17,9 +17,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-    env:
-      OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
-      MODEL: ${{ secrets.LANA_MODEL }}
 
   generate-and-deploy:
     needs: install
@@ -39,6 +36,9 @@ jobs:
           lanadoc config --set LANA_MODEL=$MODEL
           lanadoc generate
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        env:
+          OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+          MODEL: ${{ secrets.LANA_MODEL }}
 
       - name: Validate openapi specification
         run: echo "lanadoc validate"
