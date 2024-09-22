@@ -47,6 +47,8 @@ jobs:
         run: |
           cd docs-beta
           npm run build
+          mkdir -p ../docs-beta
+          mv dist/* ../docs-beta/ # Move build output to the new folder
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
@@ -55,5 +57,5 @@ jobs:
           vercel-username: ${{ secrets.VERCEL_USERNAME }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: docs-beta
+          working-directory: ../docs-beta # Set working directory to the new folder
           production: true
