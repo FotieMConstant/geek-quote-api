@@ -48,11 +48,6 @@ jobs:
           cd docs-beta
           npm run build
 
-      - name: Prepare docs-beta directory for deployment
-        run: |
-          mkdir -p deploy-root/docs-beta
-          cp -R docs-beta/* deploy-root/docs-beta/
-
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
@@ -60,5 +55,5 @@ jobs:
           vercel-username: ${{ secrets.VERCEL_USERNAME }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: deploy-root
+          # working-directory: docs-beta
           production: true
