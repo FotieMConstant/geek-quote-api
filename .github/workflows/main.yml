@@ -32,7 +32,7 @@ jobs:
       - name: Generate documentation
         run: |
           cd docs-beta
-          npm i yargs
+          npm install -g yargs
           npm install -g lanadoc-cli
           lanadoc generate
         env:
