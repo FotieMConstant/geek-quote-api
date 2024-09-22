@@ -1,8 +1,8 @@
 name: Documentation Deployment
 
 env:
-  LANA_OPENAI_API_KEY: ${{ vars.LANA_OPENAI_API_KEY }}
-  LANA_MODEL: ${{ vars.LANA_MODEL }}
+  LANA_OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+  LANA_MODEL: ${{ secrets.LANA_MODEL }}
   
 on:
   push:
