@@ -21,6 +21,9 @@ jobs:
   generate-and-deploy:
     needs: install
     runs-on: ubuntu-latest
+    env:
+      LANA_OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+      LANA_MODEL: ${{ secrets.LANA_MODEL }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -33,9 +36,6 @@ jobs:
           lanadoc config --set LANA_OPENAI_API_KEY=$LANA_OPENAI_API_KEY
           lanadoc config --set LANA_MODEL=$LANA_MODEL
           lanadoc generate
-        env:
-          LANA_OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
-          LANA_MODEL: ${{ secrets.LANA_MODEL }}
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
 
       - name: Validate openapi specification
