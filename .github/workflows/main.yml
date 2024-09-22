@@ -47,7 +47,14 @@ jobs:
         run: |
           cd docs-beta
           npm run build
-
+      - name: Set Vercel root directory via API
+        run: |
+              curl -X PATCH "https://api.vercel.com/v9/projects/${{ secrets.VERCEL_PROJECT_ID }}" \
+              -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "rootDirectory": ""
+              }'
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
