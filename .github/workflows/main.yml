@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      - production
-      - develop
 
 jobs:
   install:
@@ -31,24 +29,18 @@ jobs:
 
       - name: Generate documentation
         run: |
-          cd docs
+          cd docs-beta
           lanadoc generate
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           LANA_MODEL: ${{ secrets.LANA_MODEL }}
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production' || github.ref == 'refs/heads/develop'
 
       - name: Validate openapi specification
         run: echo "lanadoc validate"
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/production'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/output
           publish_branch: gh-pages
-
-      - name: Deploy developer demo (optional)
-        if: github.ref == 'refs/heads/develop'
-        run: echo "Deploying developer demo..."
