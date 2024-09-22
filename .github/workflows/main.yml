@@ -63,4 +63,5 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           working-directory: docs-beta
+          vercel-args: '--prod' # add this to promote to production url automatically
           production: true
