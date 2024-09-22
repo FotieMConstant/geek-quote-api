@@ -33,6 +33,8 @@ jobs:
           cd docs-beta
           npm install -g yargs
           npm install -g lanadoc-cli
+          echo $LANA_OPENAI_API_KEY
+          echo $LANA_MODEL
           lanadoc config --set LANA_OPENAI_API_KEY=$LANA_OPENAI_API_KEY
           lanadoc config --set LANA_MODEL=$LANA_MODEL
           lanadoc generate
