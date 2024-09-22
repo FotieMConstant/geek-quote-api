@@ -19,7 +19,9 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install -g lanadoc-cli
+        run: |
+          npm install -g lanadoc-cli
+          echo "::add-path::$(npm config get prefix)/bin"
 
   generate-and-deploy:
     needs: install
