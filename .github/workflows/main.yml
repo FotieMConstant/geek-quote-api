@@ -54,5 +54,6 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-username: ${{ secrets.VERCEL_USERNAME }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           working-directory: docs-beta
           production: true
