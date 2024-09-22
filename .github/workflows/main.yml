@@ -30,18 +30,18 @@ jobs:
           cd docs-beta
           npm install
 
-      - name: Generate documentation
-        env:
-          OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
-          MODEL: ${{ secrets.LANA_MODEL }}
-        run: |
-          cd docs-beta
-          npm install -g yargs
-          npm install -g lanadoc-cli
-          lanadoc config --set LANA_OPENAI_API_KEY=$OPENAI_API_KEY
-          lanadoc config --set LANA_MODEL=$MODEL
-          lanadoc generate
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+      # - name: Generate documentation
+      #   env:
+      #     OPENAI_API_KEY: ${{ secrets.LANA_OPENAI_API_KEY }}
+      #     MODEL: ${{ secrets.LANA_MODEL }}
+      #   run: |
+      #     cd docs-beta
+      #     npm install -g yargs
+      #     npm install -g lanadoc-cli
+      #     lanadoc config --set LANA_OPENAI_API_KEY=$OPENAI_API_KEY
+      #     lanadoc config --set LANA_MODEL=$MODEL
+      #     lanadoc generate
+      #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
 
       - name: Build Vue.js application
         run: |
@@ -52,7 +52,9 @@ jobs:
               curl -X PATCH "https://api.vercel.com/v9/projects/${{ secrets.VERCEL_PROJECT_ID }}" \
               -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
               -H "Content-Type: application/json" \
-              -d '{}'
+              -d '{
+                "rootDirectory": " "
+              }'
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
@@ -60,5 +62,5 @@ jobs:
           vercel-username: ${{ secrets.VERCEL_USERNAME }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          # working-directory: docs-beta
+          working-directory: docs-beta
           production: true
