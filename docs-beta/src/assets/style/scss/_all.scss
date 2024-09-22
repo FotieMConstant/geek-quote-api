@@ -1,0 +1,14 @@
+/* Import the font using @font-face */
+@font-face {
+  font-family: 'Reey Regular'; //name of font
+  font-style: normal;
+  font-weight: 400;
+  src: local('Reey-Regular'), local('Reey-Regular'), url('@/assets/fonts/reey/Reey-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PhontPhreaks Handwriting'; //name of font
+  font-style: normal;
+  font-weight: 400;
+  src: local('PhontPhreaks-Handwriting'), local('PhontPhreaks-Handwriting'), url('@/assets/fonts/PhontPhreaksHandwriting/PhontPhreaks-Handwriting.ttf') format('truetype');
+}

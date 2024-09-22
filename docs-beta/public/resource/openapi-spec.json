@@ -1,0 +1,152 @@
+
+  {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Geek Quote API",
+      "version": "1.0.0",
+      "description": "The Quote API is a service that provides a collection of inspirational quotes. You can use this API to retrieve random quotes, filter quotes by keywords, and explore the wisdom of known authors.",
+      "termsOfService": "https://example.com/terms",
+      "contact": {
+        "name": "fotiecodes",
+        "email": "contact@fotiecodes.com",
+        "url": "https://fotiecodes.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://geek-quote-api.vercel.app",
+        "description": "Production server"
+      },
+      {
+        "url": "http://localhost:3000",
+        "description": "Development server"
+      }
+    ],
+    "paths": {
+      "/v1/quotes": {
+        "get": {
+          "summary": "Get all quotes",
+          "description": "Endpoint to get all quotes available",
+          "responses": {
+            "200": {
+              "description": "List of all quotes"
+            }
+          }
+        }
+      },
+      "/v1/quote": {
+        "get": {
+          "summary": "Get a single random quote",
+          "description": "Endpoint to get a single random quote",
+          "responses": {
+            "200": {
+              "description": "A single random quote"
+            }
+          }
+        }
+      },
+      "/v1/quote/{count}": {
+        "get": {
+          "summary": "Get a number of quotes",
+          "description": "Endpoint to get a specified number of quotes",
+          "parameters": [
+            {
+              "name": "count",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "Number of quotes to retrieve"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of quotes based on count"
+            }
+          }
+        }
+      },
+      "/v1/quote/filter/known": {
+        "get": {
+          "summary": "Get a single random quote from known authors",
+          "description": "Endpoint to get a single random quote from known authors",
+          "responses": {
+            "200": {
+              "description": "A single random quote from known authors"
+            }
+          }
+        }
+      },
+      "/v1/quote/filter/known/{count}": {
+        "get": {
+          "summary": "Get multiple random quotes from known authors",
+          "description": "Endpoint to get multiple random quotes from known authors",
+          "parameters": [
+            {
+              "name": "count",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              },
+              "description": "Number of quotes to retrieve"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of quotes from known authors based on count"
+            }
+          }
+        }
+      },
+      "/v1/quote/filter/{keyword}": {
+        "get": {
+          "summary": "Get a single match for a specific keyword",
+          "description": "Endpoint to get a single quote that matches a specific keyword",
+          "parameters": [
+            {
+              "name": "keyword",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Keyword to match"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A single quote matching the keyword"
+            }
+          }
+        }
+      },
+      "/v1/quote/filter/all/{keyword}": {
+        "get": {
+          "summary": "Get all matches for a specific keyword",
+          "description": "Endpoint to get all quotes that match a specific keyword",
+          "parameters": [
+            {
+              "name": "keyword",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              },
+              "description": "Keyword to match"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "List of quotes matching the keyword"
+            }
+          }
+        }
+      }
+    }
+  }

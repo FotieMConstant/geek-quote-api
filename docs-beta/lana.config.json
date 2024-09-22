@@ -1,0 +1,34 @@
+{
+  "theme": "moon",
+   "sourcePaths": {
+    "routes": ["../routes/quote_route.js"],
+    "implementation": ["../controllers/quote_controller.js"]
+  },
+  "metaInfo": {
+    "info": {
+      "title": "Geek Quote API",
+      "version": "1.0.0",
+      "description": "The Quote API is a service that provides a collection of inspirational quotes. You can use this API to retrieve random quotes, filter quotes by keywords, and explore the wisdom of known authors.",
+      "termsOfService": "https://example.com/terms",
+      "contact": {
+        "name": "fotiecodes",
+        "email": "contact@fotiecodes.com",
+        "url": "https://fotiecodes.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://geek-quote-api.vercel.app",
+        "description": "Production server"
+      },
+      {
+        "url": "https://localhost:3000",
+        "description": "Developement server"
+      }
+    ]
+  }
+}
