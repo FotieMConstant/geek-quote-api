@@ -52,9 +52,7 @@ jobs:
               curl -X PATCH "https://api.vercel.com/v9/projects/${{ secrets.VERCEL_PROJECT_ID }}" \
               -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
               -H "Content-Type: application/json" \
-              -d '{
-                "rootDirectory": ""
-              }'
+              -d '{}'
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
@@ -62,5 +60,5 @@ jobs:
           vercel-username: ${{ secrets.VERCEL_USERNAME }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: docs-beta
+          # working-directory: docs-beta
           production: true
