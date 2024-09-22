@@ -33,6 +33,7 @@ jobs:
         run: |
           cd docs-beta
           npm i yargs --save
+          npm install --save @types/yargs
           npm install -g lanadoc-cli
           lanadoc generate
         env:
