@@ -53,7 +53,7 @@ jobs:
               -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
               -H "Content-Type: application/json" \
               -d '{
-                "rootDirectory": " "
+                "rootDirectory": null
               }'
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
