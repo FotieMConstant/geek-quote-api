@@ -1,5 +1,5 @@
 {
-  "theme": "moon",
+  "theme": "solarized",
    "sourcePaths": {
     "routes": ["../routes/quote_route.js"],
     "implementation": ["../controllers/quote_controller.js"]

@@ -60,24 +60,24 @@ exports.getNumberOfQuotes = (req, res) => {
   res.send(quotesList);
 };
 
-// exports.getSingleKnownAuthor = (req, res) => {
-//   let ranQuote = getKnownRandomQuote();
-//   res.send(ranQuote);
-// };
+exports.getSingleKnownAuthor = (req, res) => {
+  let ranQuote = getKnownRandomQuote();
+  res.send(ranQuote);
+};
 
-// exports.getMultipleKnownAuthor = (req, res) => {
-//   res.send(getKnownRandomQuotes(req.params.count));
-// };
+exports.getMultipleKnownAuthor = (req, res) => {
+  res.send(getKnownRandomQuotes(req.params.count));
+};
 
-// exports.getSingleMatch = (req, res) => {
-//   console.log(`User searched for first match of ${req.params.keyword}`);
-//   let mQuote = findFirstMatch(req.params.keyword);
-//   let emptyQuote = { quote: "", author: "" };
-//   res.send(mQuote ? mQuote : emptyQuote);
-// };
+exports.getSingleMatch = (req, res) => {
+  console.log(`User searched for first match of ${req.params.keyword}`);
+  let mQuote = findFirstMatch(req.params.keyword);
+  let emptyQuote = { quote: "", author: "" };
+  res.send(mQuote ? mQuote : emptyQuote);
+};
 
-// exports.getAllMatch = (req, res) => {
-//   console.log(`User searched for all matches of ${req.params.keyword}`);
-//   let quotesList = findAllMatches(req.params.keyword);
-//   res.send(quotesList ? quotesList : []);
-// };
+exports.getAllMatch = (req, res) => {
+  console.log(`User searched for all matches of ${req.params.keyword}`);
+  let quotesList = findAllMatches(req.params.keyword);
+  res.send(quotesList ? quotesList : []);
+};
